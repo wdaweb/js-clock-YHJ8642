@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <style>
+    /* * {
+      box-sizing: border-box;
+    } */
+    /* html {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+    } */
+
+    body {
+      position: relative;
+      width: 1024px;
+      height: 850px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+
+    #container {
+      /* display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center; */
+      background: url(./米奇.jpg) no-repeat center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateX(40%);
+      /* top: 0%;
+      left: 0%; */
+    }
+
+    /* img {
+      position: absolute;
+      top: 0%;
+      left: 35%;
+      
+      transform: translateX(-50%, -50%);
+
+    } */
+
+    /* .box {
+      width: 245px;
+      height: 245px;
+      visibility: none;
+    } */
+
+    #clock {
+      /* margin: 145px auto 10px auto; */
+      /* margin: auto; */
+      width: 240px;
+      height: 240px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      /* align-self: baseline; */
+      left: 410px;
+      top: 150px;
+      z-index: -1;
+
+    }
+
+    #hour {
+      width: 20%;
+      height: 8px;
+      background: red;
+      border-radius: 5px;
+      position: absolute;
+      left: 30%;
+      top: calc(50% - 4px);
+      transform-origin: right center;
+    }
+
+    #minute {
+      width: 40%;
+      height: 6px;
+      background: yellow;
+      border-radius: 5px;
+      position: absolute;
+      left: 10%;
+      top: calc(50% - 3px);
+      transform-origin: right center;
+    }
+
+    #second {
+      width: 45%;
+      height: 4px;
+      background: white;
+      border-radius: 5px;
+      position: absolute;
+      left: 5%;
+      top: calc(50% - 2px);
+      transform-origin: right center;
+      z-index: 1;
+    }
+
+    #center {
+      background-color: bisque;
+      position: absolute;
+      left: calc(50% - 10px);
+      top: calc(50% - 10px);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+
+    }
+
+    #clock ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #clock ul li {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      font-size: 20px;
+      color: white;
+    }
+
+    #clock ul li:nth-child(1) {
+      right: 22%;
+      top: 6.5%;
+    }
+
+    #clock ul li:nth-child(2) {
+      right: 6%;
+      top: 25%;
+    }
+
+    #clock ul li:nth-child(3) {
+      right: 1%;
+      top: calc(50% - 10px);
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    #clock ul li:nth-child(4) {
+      right: 6%;
+      top: 69%;
+    }
+
+    #clock ul li:nth-child(5) {
+      right: 22%;
+      top: 84%;
+    }
+
+    #clock ul li:nth-child(6) {
+      right: calc(50% - 10px);
+      top: calc(99% - 22px);
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    #clock ul li:nth-child(7) {
+      left: 22%;
+      top: 84%;
+    }
+
+    #clock ul li:nth-child(8) {
+      left: 6%;
+      top: 69%;
+    }
+
+    #clock ul li:nth-child(9) {
+      left: 1%;
+      top: calc(50% - 10px);
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    #clock ul li:nth-child(10) {
+      left: 6%;
+      top: 25%;
+    }
+
+    #clock ul li:nth-child(11) {
+      left: 22%;
+      top: 6.5%;
+    }
+
+    #clock ul li:nth-child(12) {
+      right: calc(50% - 10px);
+      top: 2%;
+      color: red;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+
+
+    #timehour {
+      position: absolute;
+      top: 130%;
+      left: -7%;
+      border: 1px solid #fff8dc;
+      background-color: #fff;
+      padding: 5px;
+      display: block;
+      box-shadow: inset 0px 2px 5px rgba(0, 0, 0, .4);
+      border-radius: 50%;
+      min-width: 30px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 30px;
+
+    }
+
+    #timeminute {
+      position: absolute;
+      top: 130%;
+      left: 20%;
+      border: 1px solid #fff8dc;
+      background-color: #fff;
+      padding: 5px;
+      display: block;
+      box-shadow: inset 0px 2px 5px rgba(0, 0, 0, .4);
+      border-radius: 50%;
+      min-width: 30px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 30px;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <div id="particles-js" style="height: 100% ;width:100%; z-index: 2;"></div>
+    <!-- <div class="box"></div> -->
+    <div id="clock">
+      <div id="hour"></div>
+      <div id="minute"></div>
+      <div id="second"></div>
+      <div id="center"></div>
+      <div id="timehour"></div>
+      <div id="timeminute"></div>
+      <ul>
+        <li><span>1</span></li>
+        <li><span>2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+        <li><span>5</span></li>
+        <li><span>6</span></li>
+        <li><span>7</span></li>
+        <li><span>8</span></li>
+        <li><span>9</span></li>
+        <li><span>10</span></li>
+        <li><span>11</span></li>
+        <li><span>12</span></li>
+      </ul>
+    </div>
+    <!-- <div class="box"></div>
+    <div class="box"></div> -->
+  </div>
+
+
+  <script>
+    const elHour = document.getElementById('hour')
+    const elMinute = document.getElementById('minute')
+    const elSecond = document.getElementById('second')
+    const elTimehour = document.getElementById('timehour')
+    const elTimesecond = document.getElementById('timeminute')
+
+
+    const clock = () => {
+      const date = new Date()
+      const h = date.getHours()
+      const m = date.getMinutes()
+      const s = date.getSeconds()
+
+      elHour.style.transform = `rotate(${h * 30 + 90}deg)`
+      elMinute.style.transform = `rotate(${m * 6 + 90}deg)`
+      elSecond.style.transform = `rotate(${s * 6 + 90}deg)`
+
+      timehour.innerHTML = '<span>' + '<strong>' + h + '</strong>' + '</span>';
+      timeminute.innerHTML = '<span>' + '<strong>' + m + '</strong>' + '</span>';
+
+    }
+
+    setInterval(clock, 1000)
+    clock()
+  </script>
+  <script src="./particles.min.js"></script>
+  <!-- 2.使用 particles + 參數 -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
